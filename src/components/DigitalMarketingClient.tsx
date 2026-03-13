@@ -239,7 +239,7 @@ export default function DigitalMarketingClient({ pageData }: Props) {
                                     viewport={{ once: true }}
                                     transition={{ duration: 0.5, delay: index * 0.1 }}
                                     onClick={() => setSelectedService(service)}
-                                    className="text-white rounded-xl p-4 md:p-8 hover:-translate-y-2 transition flex flex-col items-center text-center w-full max-w-[270px] aspect-[4/5] md:h-[380px] cursor-pointer group"
+                                    className="text-white rounded-xl p-4 md:p-8 hover:-translate-y-2 transition flex flex-col items-center text-center w-full max-w-[270px] h-[320px] md:h-[380px] cursor-pointer group"
                                     style={{ backgroundColor: '#1C2961' }}
                                 >
                                     <div className="w-12 h-12 md:w-16 md:h-16 mb-4 md:mb-6 flex items-center justify-center group-hover:scale-110 transition-transform">

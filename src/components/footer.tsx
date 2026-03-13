@@ -227,7 +227,7 @@ export default function Footer() {
 
   return (
     <footer className="border-t border-border/50 bg-gray-200">
-      <div className="mx-auto max-w-7xl pt-10 pb-5">
+      <div className="mx-auto max-w-7xl pt-10 pb-5 px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 lg:grid-cols-6 gap-8 mb-10 lg:gap-12">
 
           {/* Company Info */}

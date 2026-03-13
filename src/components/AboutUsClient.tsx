@@ -388,13 +388,13 @@ export default function AboutUsClient({ data }: { data: WpPage }) {
 
                     <div className="grid grid-cols-2 gap-3 md:gap-6 md:grid-cols-2 lg:grid-cols-3">
                         {excellence.map((excellence, index) => (
-                            <div key={index}>
+                            <div key={index} className="h-full">
                                 <motion.div
                                     initial={{ opacity: 0, y: 30, scale: 0.95 }}
                                     animate={excellenceInView ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 30, scale: 0.95 }}
                                     transition={{ duration: 0.6, delay: 0.1 + index * 0.05, ease: [0.22, 1, 0.36, 1] }}
                                     whileHover={{ y: -10, scale: 1.03 }}
-                                    className="relative cursor-pointer group"
+                                    className="relative cursor-pointer group h-full"
                                 >
                                     <div className="h-full p-4 md:p-6 transition-all duration-300 border rounded-xl bg-card border-border/50 hover:border-primary/50 hover:shadow-xl hover:shadow-primary/10 bg-gray-100">
                                         <h3 className="mb-3 text-base md:text-lg font-semibold transition-colors text-foreground group-hover:text-primary">
@@ -443,13 +443,13 @@ export default function AboutUsClient({ data }: { data: WpPage }) {
 
                     <div className="grid grid-cols-2 gap-3 md:gap-6 md:grid-cols-2 lg:grid-cols-4">
                         {reason.map((reason, index) => (
-                            <div key={index}>
+                            <div key={index} className="h-full">
                                 <motion.div
                                     initial={{ opacity: 0, y: 30, scale: 0.95 }}
                                     animate={reasonInView ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 30, scale: 0.95 }}
                                     transition={{ duration: 0.6, delay: 0.1 + index * 0.05, ease: [0.22, 1, 0.36, 1] }}
                                     whileHover={{ y: -10, scale: 1.03 }}
-                                    className="relative cursor-pointer group"
+                                    className="relative cursor-pointer group h-full"
                                 >
                                     <div className="h-full p-4 md:p-6 transition-all duration-300 border rounded-xl bg-card border-border/50 hover:border-primary/50 hover:shadow-xl hover:shadow-primary/10">
                                         <motion.div
@@ -523,7 +523,7 @@ export default function AboutUsClient({ data }: { data: WpPage }) {
                                     ease: [0.22, 1, 0.36, 1],
                                 }}
                                 whileHover={{ y: -12, scale: 1.02 }}
-                                className="relative group"
+                                className="relative group h-full"
                             >
                                 <div
                                     className={`h-full p-4 md:p-8 rounded-2xl bg-linear-to-br ${card.gradient} border border-border/50 hover:border-primary/50 transition-all duration-300 hover:shadow-xl hover:shadow-primary/10`}
