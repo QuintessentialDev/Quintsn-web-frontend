@@ -94,7 +94,7 @@ export default function RootLayout({
           crossOrigin="anonymous"
           referrerPolicy="no-referrer"
         />
-        <link rel="icon" type="image/png" href="/img/logo_icon.png" />
+        <link rel="icon" type="image/png" href="https://web.quintessentialtech.com/wp-content/uploads/2026/03/Color_Icon.png" />
 
         {/* Meta Pixel Code */}
         <script
