@@ -86,6 +86,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <meta name="facebook-domain-verification" content="kmrdel5m0oxgskeab9pirtwm8uffkr" />
         {/* Font Awesome CDN for social icons */}
         <link
           rel="stylesheet"
