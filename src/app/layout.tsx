@@ -127,10 +127,8 @@ export default function RootLayout({
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} ${poppins.variable}`}>
         {/* Google Tag (gtag.js) */}
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-W08YQ44RB0"
-          strategy="afterInteractive"
-        />
+
+        <Script src="https://www.googletagmanager.com/gtag/js?id=G-W08YQ44RB0" strategy="afterInteractive" />
         <Script id="google-analytics" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
