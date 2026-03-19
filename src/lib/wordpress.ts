@@ -161,7 +161,7 @@ export async function getPostsByCategory(categoryId: number, limit: number = 10)
 
 export async function getRankMathSEO(path: string) {
   const baseUrl = (WP_BASE_URL || "").replace(/\/$/, "");
-  const frontendUrl = `https://web.qintella.com${path}`;
+  const frontendUrl = `https://web.quintessentialtech.com${path}`;
   const url = `${baseUrl}/wp-json/rankmath/v1/getHead?url=${frontendUrl}`;
 
   try {
@@ -186,6 +186,8 @@ export function parseRankMathMetadata(headString: string): any {
   if (!headString) return {};
 
   const metadata: any = {
+    openGraph: {},
+    twitter: {},
     other: {}
   };
 
@@ -200,20 +202,26 @@ export function parseRankMathMetadata(headString: string): any {
     const key = match[1];
     const value = match[2];
 
-    if (key === 'description') metadata.description = value;
-    else if (key.startsWith('og:')) {
-      if (!metadata.openGraph) metadata.openGraph = {};
+    if (key === 'description') {
+      metadata.description = value;
+    } else if (key.startsWith('og:')) {
       const ogKey = key.replace('og:', '');
-      metadata.openGraph[ogKey] = value;
-    }
-    else if (key.startsWith('twitter:')) {
-      if (!metadata.twitter) metadata.twitter = {};
+      if (ogKey === 'site_name') {
+        metadata.openGraph.siteName = value;
+      } else {
+        metadata.openGraph[ogKey] = value;
+      }
+    } else if (key.startsWith('twitter:')) {
       const twitterKey = key.replace('twitter:', '');
       metadata.twitter[twitterKey] = value;
-    }
-    else {
+    } else {
       metadata.other[key] = value;
     }
+  }
+
+  // Fallback title to og:title if no <title> tag exists
+  if (!metadata.title && metadata.openGraph.title) {
+    metadata.title = metadata.openGraph.title;
   }
 
   // Extract Canonical
@@ -232,6 +240,10 @@ export function parseRankMathMetadata(headString: string): any {
       follow: content.includes('follow'),
     };
   }
+
+  if (Object.keys(metadata.openGraph).length === 0) delete metadata.openGraph;
+  if (Object.keys(metadata.twitter).length === 0) delete metadata.twitter;
+  if (Object.keys(metadata.other).length === 0) delete metadata.other;
 
   return metadata;
 }
