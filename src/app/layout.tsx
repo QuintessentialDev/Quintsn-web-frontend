@@ -136,6 +136,19 @@ export default function RootLayout({
           />
         </noscript>
         {/* End Meta Pixel Code */}
+
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-PNV0P729GW"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-PNV0P729GW');
+  `}
+        </Script>
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} ${poppins.variable}`}>
         {/* Google Tag Manager (noscript) */}
