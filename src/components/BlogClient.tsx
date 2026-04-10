@@ -43,7 +43,6 @@ export default function BlogClient({ data }: { data: WPBlogPage }) {
 
     return (
         <main className="w-full overflow-hidden">
-
             <Navigation isDarkBg={true} />
             <section className="relative min-h-screen bg-black text-white flex items-center justify-center overflow-hidden">
                 {hero?.hero_image?.url ? (
