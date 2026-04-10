@@ -24,19 +24,19 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
   title: {
-    default: "Qintella | Leading Software Development & IT Consulting Services",
-    template: "%s | Qintella"
+    default: "Quintessential Technologies | Leading Software Development & IT Consulting Services",
+    template: "%s | Quintessential Technologies"
   },
-  description: "Qintella provides cutting-edge software development, mobile apps, and IT consulting services to help businesses scale and innovate.",
-  metadataBase: new URL("https://www.qintella.com"),
+  description: "Quintessential Technologies provides cutting-edge software development, mobile apps, and IT consulting services to help businesses scale and innovate.",
+  metadataBase: new URL("https://www.quintessentialtech.com"),
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "Qintella | Leading Software Development & IT Consulting Services",
-    description: "Qintella provides cutting-edge software development, mobile apps, and IT consulting services to help businesses scale and innovate.",
-    url: "https://www.qintella.com",
-    siteName: "Qintella",
+    title: "Quintessential Technologies | Leading Software Development & IT Consulting Services",
+    description: "Quintessential Technologies provides cutting-edge software development, mobile apps, and IT consulting services to help businesses scale and innovate.",
+    url: "https://www.quintessentialtech.com",
+    siteName: "Quintessential Technologies",
     locale: "en_US",
     type: "website",
     images: [
@@ -50,8 +50,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Qintella | Leading Software Development & IT Consulting Services",
-    description: "Qintella provides cutting-edge software development, mobile apps, and IT consulting services to help businesses scale and innovate.",
+    title: "Quintessential Technologies | Leading Software Development & IT Consulting Services",
+    description: "Quintessential Technologies provides cutting-edge software development, mobile apps, and IT consulting services to help businesses scale and innovate.",
     images: ["/img/logo_icon.png"],
   },
   robots: {
@@ -63,9 +63,9 @@ export const metadata: Metadata = {
 const organizationData = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  "name": "Qintella",
-  "url": "https://www.qintella.com",
-  "logo": "https://www.qintella.com/img/logo_icon.png",
+  "name": "Quintessential Technologies",
+  "url": "https://www.quintessentialtech.com",
+  "logo": "https://www.quintessentialtech.com/img/logo_icon.png",
   "sameAs": [
     "https://www.linkedin.com/company/qintella",
     "https://www.instagram.com/qintella"
