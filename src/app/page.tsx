@@ -7,7 +7,7 @@ import ScrollProgress from "@/components/scrollProgress";
 import Home from "@/components/home";
 import JsonLd from "@/components/JsonLd";
 import { Metadata } from "next";
-
+//
 export async function generateMetadata(): Promise<Metadata> {
   const seoHead = await getRankMathSEO("/");
   if (!seoHead) return {};
