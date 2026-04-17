@@ -41,16 +41,22 @@ export default async function CategoryPage({
 }) {
     const { type } = await searchParams;
 
+    const slug = type
+        ? type.toLowerCase().replace(/\s+/g, "_")
+        : null;
+
     // Fetch basic blog page layout/hero from ACF
     const data = await getPage("blog");
-    const path = type ? `/category?type=${type}` : "/category";
+    const path = type ? `/category?type=${slug}` : "/category";
     const seoHead = await getRankMathSEO(path);
     const jsonLdData = seoHead ? extractJsonLd(seoHead) : [];
 
     let fetchedPosts: WPPost[] = [];
     try {
         if (type && type !== "All") {
-            const category = await getCategoryBySlug(type);
+            const slug = type.toLowerCase().replace(/\s+/g, "_");
+
+            const category = await getCategoryBySlug(slug);
             if (category) {
                 fetchedPosts = await getPostsByCategory(category.id);
             }
