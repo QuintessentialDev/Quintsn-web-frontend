@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import { useRef } from "react";
-import Image from "next/image";
 import Navigation from "@/components/navigation";
 import Footer from "@/components/footer";
 import { Calendar, User } from "lucide-react";
@@ -54,19 +53,7 @@ export default function BlogPostTemplate({ data }: BlogPostTemplateProps) {
                         </div>*/}
                     </header>
 
-                    {/* Featured Image (if available, show it naturally below title) */}
-                    {data.featuredImage && (
-                        <div className="mb-12 rounded-3xl overflow-hidden shadow-2xl aspect-[16/9] relative max-w-2xl mx-auto">
-                            <Image
-                                src={data.featuredImage}
-                                alt={data.title}
-                                fill
-                                className="object-cover"
-                                priority
-                                unoptimized
-                            />
-                        </div>
-                    )}
+
 
                     {/* Article Content */}
                     <article>

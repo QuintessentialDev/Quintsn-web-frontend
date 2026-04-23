@@ -12,6 +12,10 @@ const nextConfig = {
       },
       {
         protocol: "https",
+        hostname: "web.quintessentialtech.com",
+      },
+      {
+        protocol: "https",
         hostname: "api.dicebear.com",
       },
     ],

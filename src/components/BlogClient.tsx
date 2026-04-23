@@ -24,7 +24,7 @@ interface WPCardData {
     category: string;
     card_title: string;
     card_desc: string;
-    card_image: WPImage;
+    card_image: WPImage | string;
     link_page: string;
 }
 
@@ -128,9 +128,9 @@ export default function BlogClient({ data }: { data: WPBlogPage }) {
                                             animate={{ scale: hoveredIndex === index ? 1.1 : 1 }}
                                             transition={{ duration: 0.6 }}
                                         >
-                                            {study.card_image?.url && (
+                                            {(typeof study.card_image === 'string' || (study.card_image as WPImage)?.url) && (
                                                 <Image
-                                                    src={study.card_image.url}
+                                                    src={typeof study.card_image === 'string' ? study.card_image : (study.card_image as WPImage).url}
                                                     alt={study.card_title}
                                                     fill
                                                     className="object-cover"

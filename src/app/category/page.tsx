@@ -25,11 +25,12 @@ interface WPPost {
     id: number;
     title: { rendered: string };
     excerpt: { rendered: string };
+    content: { rendered: string };
     link: string;
     slug: string;
     class_list: string[];
     _embedded?: {
-        'wp:featuredmedia'?: Array<{ source_url: string }>;
+        'wp:featuredmedia'?: Array<{ source_url?: string; code?: string }>;
         'wp:term'?: Array<Array<{ name: string; slug: string }>>;
     };
 }
@@ -86,12 +87,26 @@ export default async function CategoryPage({
             if (catClass) categoryName = catClass.replace('category-', '').toUpperCase();
         }
 
+        // Handle image extraction fallback if featured media is unauthorized or missing
+        const featuredMedia = post._embedded?.['wp:featuredmedia']?.[0];
+        let imageUrl = "/img/logo.png"; // Established fallback that exists
+
+        if (featuredMedia && featuredMedia.source_url) {
+            imageUrl = featuredMedia.source_url;
+        } else {
+            // Extraction fallback: first image in content
+            const imgMatch = post.content?.rendered?.match(/<img [^>]*src="([^"]+)"/);
+            if (imgMatch) {
+                imageUrl = imgMatch[1];
+            }
+        }
+
         return {
             category: categoryName,
             card_title: post.title.rendered,
             card_desc: post.excerpt.rendered.replace(/<[^>]*>?/gm, ''), // Strip HTML
             card_image: {
-                url: post._embedded?.['wp:featuredmedia']?.[0]?.source_url || "/placeholder-blog.jpg",
+                url: imageUrl,
                 alt: post.title.rendered,
                 title: post.title.rendered
             },

@@ -253,13 +253,25 @@ export default async function CatchAllSlugPage({
                 if (terms && terms.length > 0) categoryName = terms[0].name;
             }
 
+            // Handle image extraction fallback if featured media is unauthorized or missing
+            const featuredMedia = wpPost._embedded?.['wp:featuredmedia']?.[0];
+            let imageUrl = featuredMedia?.source_url;
+
+            if (!imageUrl) {
+                // Extraction fallback: first image in content
+                const imgMatch = wpPost.content?.rendered?.match(/<img [^>]*src="([^"]+)"/);
+                if (imgMatch) {
+                    imageUrl = imgMatch[1];
+                }
+            }
+
             const postData = {
                 title: wpPost.title.rendered,
                 content: wpPost.content.rendered,
                 date: wpPost.date,
                 author: wpPost._embedded?.author?.[0]?.name,
                 category: categoryName,
-                featuredImage: wpPost._embedded?.['wp:featuredmedia']?.[0]?.source_url
+                featuredImage: imageUrl
             };
 
             return (

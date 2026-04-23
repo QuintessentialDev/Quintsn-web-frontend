@@ -43,7 +43,7 @@ interface PostCard {
         url: string;
         alt: string;
         title: string;
-    };
+    } | string;
     link_page: string;
 }
 
@@ -183,15 +183,15 @@ export default function CategoryClient({
                                                 animate={{ scale: hoveredIndex === index ? 1.1 : 1 }}
                                                 transition={{ duration: 0.6 }}
                                             >
-                                                {study.card_image?.url && (
-                                                    <Image
-                                                        src={study.card_image.url}
-                                                        alt={study.card_title}
-                                                        fill
-                                                        className="object-cover"
-                                                        unoptimized
-                                                    />
-                                                )}
+                                                 {(typeof study.card_image === 'string' || (study.card_image as any)?.url) && (
+                                                     <Image
+                                                         src={typeof study.card_image === 'string' ? study.card_image : (study.card_image as any).url}
+                                                         alt={study.card_title}
+                                                         fill
+                                                         className="object-cover"
+                                                         unoptimized
+                                                     />
+                                                 )}
                                                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
                                             </motion.div>
 
